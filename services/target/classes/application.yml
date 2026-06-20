@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: order-api-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/orderiq?options=-c%20TimeZone=UTC
+    username: orderiq
+    password: orderiq
+
+  jpa:
+    hibernate:
+      # Flyway owns the schema. Hibernate only VALIDATES that the entities
+      # match the migrated tables; it never creates or alters anything.
+      ddl-auto: validate
+    # Avoid keeping the DB session open for the whole HTTP request.
+    open-in-view: false
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+server:
+  port: 8080

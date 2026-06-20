@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: orderiq-postgres
+    environment:
+      POSTGRES_DB: orderiq
+      POSTGRES_USER: orderiq
+      POSTGRES_PASSWORD: orderiq
+    ports:
+      - "5432:5432"
+    volumes:
+      - orderiq-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U orderiq"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+volumes:
+  orderiq-pgdata:
