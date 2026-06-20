@@ -1,0 +1,28 @@
+# Compiled output
+target/
+build/
+out/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# VS Code / Eclipse
+.vscode/
+.classpath
+.project
+.settings/
+
+# OS noise
+.DS_Store
+Thumbs.db
+
+# Logs & local env
+*.log
+.env
+.env.local
+
+# Docker volumes (if mapped locally)
+/data/
